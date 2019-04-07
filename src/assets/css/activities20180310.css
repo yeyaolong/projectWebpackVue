@@ -1,0 +1,132 @@
+/* tab */
+.activitiesTab { padding:10px 0 0; text-align: center; margin-bottom: -10px;}
+.activitiesTab a:after,.activitiesTab span:after { content: ""; position: absolute; left:-50px; top: 14px; height: 3px; background: #c0c0c0; width: 210px;}
+.activitiesTab a,.activitiesTab span { display: inline-block; width: 140px; height: 40px; line-height: 12px; margin:0 20px; position: relative;}
+.activitiesTab a label,.activitiesTab span label { display: block; width: 30px; height: 30px; border-radius: 50%; line-height: 24px; text-align: center; background: #c0c0c0; color: #fff; margin:0 auto 6px; border:3px solid #f8f3f0; position: relative; z-index: 8;}
+/*.activitiesTab a.active { background: #f60; color: #fff;}*/
+.activitiesTab a label { cursor: pointer;}
+.activitiesTab a.active:after { background:#fa7612; z-index: 5;}
+.activitiesTab a.active label {
+background-color:#fa7612;
+background:-webkit-gradient(linear,left top,left bottom,from(#ff983f),to(#fa7815));
+background:-moz-linear-gradient(top,#ff983f,#fa7815);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff983f',endColorstr='#f1f1f1');
+background:-o-linear-gradient(top,#ff983f,#fa7815);background:linear-gradient(top,#ff983f,#fa7815);
+}
+
+/* 基本信息 */
+.searchInfoBox { background: #f5f5f5; border:1px solid #eee; min-height:220px; width: 49%;}
+.searchInfoBox .t { line-height: 40px; line-height: 40px; border-bottom: 1px solid #fff; padding:0 10px; margin-bottom: 10px;}
+.searchInfoBoxList {}
+.searchInfoBoxList ul,.searchInfoBoxList li { list-style: none; padding:0; margin:0;}
+.searchInfoBoxList li { height: 30px; line-height: 29px; padding: 0 10px; display: inline-block; width: 150px; margin-right: 10px;}
+.searchInfoBoxList li a { display: block; margin:0 -10px; padding:0 10px; height: 29px; line-height: 29px; overflow: hidden;text-overflow:ellipsis;white-space:nowrap;}
+.searchInfoBoxList li a.pl20 { padding-left:24px;}
+.searchInfoBoxList li a:hover { color:#f60;}
+.searchInfoBoxList li a.selected { color: #fa7612;}
+.searchInfoBoxList li.active a { background: #f5f8fd; color: #fa7612;}
+.searchInfoBoxList .checkbox,.searchInfoBoxList .iconfont { float: right; border:1px solid #ddd; border-radius: 2px; width: 20px; height: 20px; display: inline-block; background: #fff; margin:5px 0 0; line-height: 20px; text-align: center}
+.searchInfoBoxList .selected .checkbox {  background: url(../images/common/right-orange.png) #fff 50% 50% no-repeat; background-size: 70%;}
+.searchInfoBoxList .iconfont { border:0; background: none;}
+.searchInfoBox .pagination>li>a,.searchInfoBox .pagination>li>span,
+.searchInfoBox .pagination>.active>a,.searchInfoBox .pagination>.active>a:focus,.searchInfoBox .pagination>.active>a:hover,.searchInfoBox .pagination>.active>span, 
+.searchInfoBox .pagination>.active>span:focus,.searchInfoBox .pagination>.active>span:hover { padding:4px 6px; background: none; border:none;}
+.searchInfoBox .pagination>.active>a,.searchInfoBox .pagination>.active>a:focus,.searchInfoBox .pagination>.active>a:hover,.searchInfoBox .pagination>.active>span,
+.searchInfoBox .pagination>.active>span:focus,.searchInfoBox .pagination>.active>span:hover { color:#999 }
+
+/* 门店标准 */
+.shopStandard {}
+.shopStandard input[type=text] { border:0; padding:0; text-align: center; line-height: 24px; border-bottom: 1px solid #f2f2f2;}
+.shopStandardLeft,.shopStandardRight { border:1px #ededed solid; width: 45%; margin-left:30px;}
+.shopStandardLeftLine { border-bottom: 1px solid #f2f2f2; line-height: 39px; height: 40px; padding:0 10px 0 20px; position: relative;}
+.shopStandardLeftLine .checkbox { position: absolute; left:-30px; top: 1px; width: 16px; height: 16px; vertical-align: middle; border-radius: 50%; border:2px solid #f1f1f1; cursor: pointer; }
+.shopStandardLeftLine .checkbox.active { background: url(../images/common/right-white.png) 50% 50% #fc5f6a no-repeat; border-color: #fc5f6a; background-size: 80%;}
+.shopStandardLeft .shopStandardAdd,.shopStandardLeft .shopStandardReduce{ position: absolute; right:-18px;}
+.shopStandardAdd,.shopStandardReduce { width: 18px; height: 18px; background: #b1b1b2; color: #fff; display: inline-block; line-height: 18px; text-align: center; border-radius: 2px;}
+.shopStandardAdd .iconfont,.shopStandardReduce .iconfont {font-size: 12px;}
+.shopStandardReduce .iconfont:before { content:"\e644";}
+.shopStandardAdd:hover,.shopStandardReduce:hover { opacity: 0.9; color: #fff;}
+.shopStandardAdd { top: 0;}
+.shopStandardReduce { bottom: 22px;}
+.shopStandardRightLine {border-bottom: 1px solid #f2f2f2; line-height: 39px; height: 40px; padding:0 20px; position: relative;}
+.shopStandardRightLine .checkbox { position: absolute; left:-30px; top: 1px; width: 16px; height: 16px; vertical-align: middle; border-radius: 50%; border:2px solid #f1f1f1; cursor: pointer; }
+.shopStandardRightLine .checkbox.active { background: url(../images/common/right-white.png) 50% 50% #fc5f6a no-repeat; border-color: #fc5f6a; background-size: 80%;}
+
+
+/* 活动目标 */
+.activitiesTargetTop { font-size: 0;}
+.activitiesTargetTop>a { display: inline-block; padding:0 12px 0 8px; line-height: 23px; color: #666; font-size: 14px; margin-right: 10px; border:1px solid #fff;}
+.activitiesTargetTop>a:hover { color: #f60;}
+.activitiesTargetTop>a.active { background: #f60; color: #fff; border-radius: 4px; border-color: #f60;}
+.activitiesTargetTop>a.selected { border-color: #f60; border-radius: 4px; position: relative;}
+.activitiesTargetTop>a.selected:after { content: ""; position: absolute; right:-1px; bottom:0; width: 14px; height: 11px; background: url(../images/common/currentBg.png) no-repeat; background-size:100% 100%;}
+.activitiesTargetTable { width: 100%; border:1px solid #ededed; border-radius: 4px; text-align: center;table-layout:fixed;}
+.activitiesTargetTable thead { background: #fbf6ed;}
+.activitiesTargetTable thead th { height: 40px; text-align: center; border-bottom:1px solid #ededed; color: #666;}
+.activitiesTargetTable .selectBox { border:0; background: none; width: 100%;}
+.activitiesTargetTable .selectBox>a { border:0; color: #666;}
+.activitiesTargetTable td { line-height: 30px; border-bottom:1px solid #ededed;}
+
+.activitiesTargetTable .selectDialog { text-align: left; font-weight: normal;}
+.activitiesTargetTable input.edit { border:1px solid #ededed; padding:0; margin:0; line-height: 24px; width: 70%; color: #fa7612; text-align: center;}
+.activitiesTargetTable a:hover { color: #f60;}
+.activitiesTargetTable tbody tr:hover { background-color:#fbf6ed;}
+
+/* tabBox */
+.tabBox { border-bottom: 1px solid #ed6c44; height: 40px; line-height: 39px; font-size: 0; margin-left:-20px; margin-right: -20px; padding:0 20px;}
+.tabBox a { display: inline-block; font-size: 14px; padding:0 15px; color: #c0c0c0; margin-right: 10px;}
+.tabBox a.active { position: relative; color: #4f4f4f;}
+.tabBox a.active:after { content: ""; position: absolute; left:0; bottom:0; right:0; height: 2px; background: #ed6c44;}
+
+/* page */
+.pagination { margin:0; vertical-align: middle;}
+.page select { vertical-align: middle; height: 34px; width: 100px; border:1px solid #ddd;}
+.page input.ipt { width: 40px; text-align: center; height: 34px; border:1px solid #ddd; padding:0;}
+.page label { font-weight: normal; margin-bottom: 0;}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover { background: #564d49; border-color: #564d49;}
+
+/*企业活动*/
+.companyActivities { position: relative; }
+.companyActivities .del { position: absolute; right:10px; top: 0;}
+.companyActivities .companyInfo { float: left; width: 380px;}
+.companyActivities .companyInfo input.ipt { width: 155px;}
+.companyActivities .companyInfoMaterial { margin-left:400px;}
+.companyInfoMaterial .t { line-height: 33px; margin-bottom: 20px;}
+.companyInfoMaterial .box { display: inline-block; width: 200px; line-height: 33px; margin-bottom: 20px; font-size: 14px;}
+.companyInfoMaterial .box label { float: left; width: 80px; text-align: center; font-weight: normal; margin: 0;}
+.companyInfoMaterial .box .text { margin-left:80px;}
+.companyInfoMaterial .box .ipt { width: 70%; padding:0; margin:0; height: 33px; padding:0 10px;}
+
+
+
+ /* 活动列表 */
+.circleBox { width: 8px; height: 8px; display: inline-block; vertical-align: middle;}
+.btn-activityNew,.btn-MailList { cursor: pointer; vertical-align: middle; display: inline-block; height: 33px; border:1px solid #fa7612; line-height: 31px; padding:0 20px; border-radius: 16px;}
+.btn-activityNew { color: #fa7612;}
+.btn-activityNew .iconfont { background: #fa7612; color: #fff; font-size: 12px; border-radius: 2px;}
+.btn-MailList { background: #5b84a5; border-color: #5b84a5; color: #fff;}
+.btn-activityNew:hover,.btn-activityNew:active,.btn-activityNew:focus,
+.btn-MailList:hover,.btn-MailList:focus,.btn-MailList:active { opacity: 0.8;}
+.btn-MailList:hover,.btn-MailList:focus,.btn-MailList:active{ color: #fff;}
+.activityListSearch .icon-sousuo1 { position: absolute; right:10px; top: -2px; color: #999;}
+#mailListTable { height: 310px; overflow-y:scroll;}
+#mailListTable p { margin:0;}
+#mailListTable a.active .glyphicon-triangle-right:before { content: "\e252"; }
+
+/* 活动上报 */
+.activityUpList {}
+.activityUpList ul,.activityUpList li { margin:0; list-style: none; padding:0;}
+.activityUpList li { float: left; width: 20%; margin:0 0 10px 0; height: 33px; line-height: 33px;}
+.activityUpList li label { vertical-align: middle; width: 70px; text-align: right; font-weight: normal; float: left; overflow: hidden;text-overflow:ellipsis;white-space:nowrap;}
+.activityUpList li .tr { margin:0 5px 0 75px;}
+.activityUpList li input { line-height: normal; width: 100%;}
+.uploadPic { font-size: 0;}
+.uploadPic .uploadPicBox { display: inline-block; width: 100px; height: 100px; border-radius: 5px; border:1px dashed #b1b1b1; position: relative; margin-right:15px; background: #fafafa; font-size: 16px; overflow: hidden;}
+.uploadPic .uploadPicBox input[type=file] { position: absolute;left:0; right:0; top: 0; bottom:0; display: block; width: 100px; height: 100px; z-index: 10; opacity: 0;
+filter: alpha(opacity=0); filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0); -ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';}
+.uploadPic .uploadPicBoxTxt { text-align: center; padding:20px 0 0;}
+.uploadPic .uploadPicBoxTxt p { margin:0; padding:0;}
+.uploadPic .uploadPicImg { position: absolute; z-index: 2; left:10px; right:10px; top: 10px; bottom:10px; overflow: hidden;}
+.uploadPic .uploadPicImg img { height: 100%; width: 100%;}
+
+

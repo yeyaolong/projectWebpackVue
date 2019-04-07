@@ -1,0 +1,14 @@
+.box-card { margin-top: 10px; width: 100%; min-height: 100px; box-shadow: none;}
+.listDemo {
+    li { 
+        line-height: 30px; padding-bottom: 10px;
+        span { 
+            display: inline-block; margin-right: 10px;
+            &.t1 { width: 20px;}
+            &.t2 { width: 160px;}
+            &.t3 { width: 160px;}
+            &.t4 { width: 60px;}
+            &.t5 { width: 300px;}
+        }
+    }
+}

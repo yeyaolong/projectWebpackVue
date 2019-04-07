@@ -1,0 +1,31 @@
+@import '../../assets/loginfonts/iconfont.css';
+.loginBg { position: absolute; left:0; right:0; top: 0; bottom:0; background: url("../../assets/images/login/loginBg.jpg") 50% 50% no-repeat; background-size: 100% 100%;}
+.loginBox { position: absolute; left:50%; top: 50%; -webkit-transform: translate(-50%,-55%); -ms-transform: translate(-50%,-55%); transform: translate(-50%,-55%);
+    .logo { text-align: center;}
+    .loginContent {  height: 400px; background: #fff; width: 900px; padding-left:634px; margin:60px auto 0; position: relative; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-radius: 5px;}
+    .leftPic { position: absolute; left:-80px; top: -40px; width: 570px; overflow: hidden;}
+    .leftPic img { width: 100%;}
+    .rightLoginBox { position: absolute; right:60px; top: 40px; width:330px;}
+}
+.footer { position: absolute; left:0; right:0; bottom:10px; text-align: center; color: #999; font-size: 14px;}
+.rightLoginBox {
+    .title { color: #ff7a0f; font-size: 24px; padding-bottom: 30px;}
+    .loginForm { margin-bottom: 10px; height: 46px; line-height: 46px; border:1px solid #e3e3e3; border-radius: 2px; position: relative; padding:0 10px 0 50px;
+-moz-transition: all 0.5s;-webkit-transition: all 0.5s;-o-transition: all 0.5s;transition: all 0.5s;}
+    .loginForm:before { content: ""; position: absolute; left:40px; width: 1px; top: 13px; bottom:13px; background: #c8c8c8;}
+    .loginForm .iconfont { position: absolute; left:0; width: 40px; text-align: center; line-height: 42px; font-size: 18px;}
+    .loginForm input { height: 100%; width: 100%; display: block; border:0; vertical-align: middle;}
+    .loginForm.msg { margin-right: 120px;}
+    .loginForm .yzm { position: absolute; right:-120px; top: 0; height: 46px; width: 110px; border-radius: 2px; cursor:pointer; background: #d1d1d1;}
+    .loginForm .yzm.active { background: #eee;}
+    .loginForm.active { border-color:#ff7a0f; box-shadow: 0 0 10px rgba(255,122,15,0.6);}
+    .loginForm.active .iconfont { color: #ff7a0f;}
+}
+.btnLoginSubmit {
+    display: block; width: 100%; height:50px; font-size: 16px; color: #fff; border-radius: 25px; cursor: pointer;
+    background:#ff6e00;
+    background:-webkit-linear-gradient(left, #ff6e00, #ffac00);
+    background:-o-linear-gradient(left, #ff6e00, #ffac00);
+    background:linear-gradient(to right, #ff6e00, #ffac00);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6e00', endColorstr='#ffac00')";
+}

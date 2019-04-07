@@ -1,0 +1,153 @@
+
+//定义颜色
+$c55:#555;
+$c22:#222;
+$c33:#333;
+$c99:#999;
+$c77:#777;
+$c00:#000;
+$cff:#fff;
+$caa:#aaa;
+$ccc:#ccc;
+$cf0:#f0f0f0;
+$cdd:#ddd;
+$cee:#eee;
+$cf9:#f9f9f9;
+$cf7:#F7F7F7;
+$cfa:#fafafa;
+$cf60:#FF8225;
+$c2a:#2a3542;
+$c35:#35404d;
+$c1d:#1DA1F2;
+$cff0:#ff0000;
+$c02:#02c12a;
+$cf4:#f4f4f4;
+$cbbe:#bbe3fb;
+$cde :#dedede;
+
+
+%mt5 {
+  margin-top: 5px;
+}
+%mt10 {
+  margin-top: 10px;
+}
+%mt15 {
+  margin-top: 15px;
+}
+%pt5{
+  padding-top: 5px;
+}
+%pl10{
+  padding-left:10px;
+}
+// 占位符 %placeholder    没有被@extend调用，不产生任何代码块
+.btn { 
+    @extend %mt5; 
+    @extend %pt5;
+}
+.block { 
+    @extend %mt5; 
+    span { 
+        @extend %pt5; 
+    }
+}
+
+
+// 背景图片地址和大小
+@mixin bjs($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+}
+//定义magin
+@mixin setMargin($left, $right, $bottom,$top){
+  margin:$top $right $bottom $left;
+}
+//定义padding
+@mixin setPadding($left, $right, $bottom,$top){
+  padding:$top $right $bottom $left;
+}
+//居中
+@mixin jz {
+  position:absolute;
+  left:0;
+  bottom:0;
+  margin:0;
+  padding:0;
+}
+
+//定义圆角
+@mixin borderRadius($radius:5px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+//定位全屏
+@mixin allcover{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+}
+
+//定位上下左右居中
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//定位上下居中
+@mixin ct {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+//定位上下居中
+@mixin cl {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+//宽高
+@mixin wh($width, $height){
+  width: $width;
+  height: $height;
+}
+
+//字体大小，颜色
+@mixin sc($size, $color){
+  font-size: $size;
+  color: $color;
+}
+
+
+
+// 调用
+.button{
+    @include borderRadius(4px);
+}
+// 继承
+.btn-primary { 
+    background-color: $cde;
+    @extend .button;
+}
+
+// 常用清除伪类方法
+.clearfix {
+    display: block;
+    &:after{
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+}

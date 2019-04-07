@@ -1,0 +1,66 @@
+a img,body,button,div,fieldset,form,h1,h2,h3,h4,h5,h6,html,input,li,menu,ol,p,textarea,ul,dl,dd,td,tr,th{padding:0;margin:0;border:0;font-family:'microsoft yahei';}
+li,ol,ul{list-style:none}
+b,em,h1,h2,h3,h4,h5,h6,i{font-weight:400;font-style:normal}
+body,button,input,select,textarea{-webkit-text-size-adjust:none;outline:0;}
+body{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+input[type=text]:focus,input[type=password]:focus{outline:0;}
+select:focus{outline:0;box-shadow:0 0 8px rgba(126,202,241,.5);border:1px solid #58c9f3}
+textarea:focus{outline:0;box-shadow:0 0 8px rgba(126,202,241,.5);border:1px solid #58c9f3}
+textarea{overflow:auto}
+input::-ms-clear{display:none}
+input[type=password]::-ms-reveal{display:none}
+input:-webkit-autofill,input:-webkit-autofill:focus,input:-webkit-autofill:hover{box-shadow:0 0 0 60px #fff inset;-webkit-text-fill-color:#333}
+/* table { border-collapse: collapse; border-spacing: 0;} */
+* { -moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+a { color: #333; text-decoration: none;}
+a:hover { color: #666; text-decoration: none;}
+input::-ms-clear{display:none;}
+img { border:0;}
+input[type=checkbox] { vertical-align: middle;}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+  background: transparent;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+::-webkit-resizer{
+  background: transparent;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background-clip: content-box;
+  border: solid 2px transparent;
+}
+/*滚动轨道*/
+::-webkit-scrollbar-track {
+  background-color: rgba(33, 37, 43, 0.26);
+}
+/*滚动条*/
+::-webkit-scrollbar-thumb {
+  min-height: 20px;
+  background-color: rgba(33, 37, 43, 0.26);
+
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: #5A6274;
+  border-width: 1px;
+}
+
+
+/* 框架 */
+.side-menu { position: absolute; left:0; top: 0; bottom: 0; overflow-y:auto; width: 255px; background: #fff;}
+.header~.side-menu { top: 75px;}
+.content { position: absolute; left:0; top:0; right:0; bottom:0; background: #f5f5f5; border-top: 1px solid #ededed; overflow: auto; padding:0;}
+.content .contentTitle { border-bottom: 1px solid #ededed; height: 44px; background: #fff; line-height: 43px;}
+.content .contentTitle .t { margin-left:30px; border-bottom: 3px solid #fa7612; line-height: 40px; padding:0 12px; font-size: 16px; display: inline-block;}
+.header~.content { top: 75px;}
+.side-menu~.content { left:255px;}
+.side-menu.menu-min { width: 45px;}
+.side-menu.menu-min~.content { left:45px;}
+.side-menu.menu-min .nav-list>li>a { padding:0; text-align: center;}
+.side-menu.menu-min .nav-list>a.side-menu-collapse { position: inherit; display: block; text-align: center; padding:5px 0 0;}
+.side-menu.menu-min .nav-list>a.side-menu-collapse .icon-weibiaoti26 { -webkit-transform: rotate(180deg);  -moz-transform:rotate(180deg); -o-transform: rotate(180deg); }
