@@ -149,7 +149,9 @@
         <div class="condition">
           <div>事件修饰符</div>
           当前写法: <pre v-text="VOnObj.message4"></pre>
-          展示内容:<el-button @click.prevent="handleClick">点我4 取消默认事件</el-button>
+          展示内容:
+          <button @click="handleClick">点我4 未取消默认事件</button>
+          <button @click.prevent="handleClick">点我4 取消默认事件</button>
         </div>
       </form>
       <div class="describe" v-for="(item, index) of VOnObj.describe" :key="index">
@@ -322,7 +324,7 @@
           </div>
         </div>
       </form>
-      <div class="describe" v-for="(item, index) of VCloakObj.describe" :key="index">
+      <div class="describe" v-for="(item, index) of VOnceObj.describe" :key="index">
         <div class="title" v-text="item.title"></div>
         <div class="value" v-text="item.value"></div>
       </div>
@@ -335,7 +337,7 @@
           展示内容: <el-button v-custom-directive="handleCustomDirective">点我执行自定义指令</el-button>
         </div>
       </form>
-      <div class="describe" v-for="(item, index) of VCloakObj.describe" :key="index">
+      <div class="describe" v-for="(item, index) of VCustomDirectiveObj.describe" :key="index">
         <div class="title" v-text="item.title"></div>
         <div class="value" v-text="item.value"></div>
       </div>
@@ -529,7 +531,7 @@ export default {
         ],
       },
       VPreObj: {
-        message: '<div v-cloak>这段内容在编译完成前是红色，编译完成后是黑色</div>',
+        message: '<div v-pre>{{VPreObj.value}}</div>',
         value: 'this is v-pre value and won\'t be compile',
         describe: [
           {
@@ -566,15 +568,11 @@ export default {
         ],
       },
       VCustomDirectiveObj: {
-        message: '<div>\n' +
-        '            <div><input v-model="VOnceObj.value"></div>\n' +
-        '            <div v-once>{{VOnceObj.value}}</div>\n' +
-        '          </div>',
-        value: '这段内容只渲染一次，不会再重新渲染了',
+        message: '<el-button v-custom-directive="handleCustomDirective">点我执行自定义指令</el-button>',
         describe: [
           {
             title: '详细',
-            value: '只渲染元素和组件一次。随后的重新渲染，元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。'
+            value: 'https://cn.vuejs.org/v2/guide/custom-directive.html#ad'
           }
         ],
       }
