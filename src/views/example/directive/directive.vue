@@ -327,6 +327,19 @@
         <div class="value" v-text="item.value"></div>
       </div>
     </div>
+    <div class="VCustomDirective" v-show="type === '自定义指令'">
+      <form>
+        <div class="condition">
+          <div>情况1</div>
+          当前写法：<pre v-text="VCustomDirectiveObj.message"></pre>
+          展示内容: <el-button v-custom-directive="handleCustomDirective">点我执行自定义指令</el-button>
+        </div>
+      </form>
+      <div class="describe" v-for="(item, index) of VCloakObj.describe" :key="index">
+        <div class="title" v-text="item.title"></div>
+        <div class="value" v-text="item.value"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -335,6 +348,7 @@ import Vue from 'vue'
 import ChildComponent from './childComponent'
 import ChildComponent2 from './childComponent2'
 import ChildComponent3 from './childComponent3'
+import CustomDirective from './CustomDirective'
 export default {
   name: 'directive',
   data () {
@@ -531,6 +545,10 @@ export default {
           {
             title: '用法',
             value: '这个指令保持在元素上直到关联实例结束编译。和 CSS 规则如 [v-cloak] { display: none } 一起用时，这个指令可以隐藏未编译的 Mustache 标签直到实例准备完毕。'
+          },
+          {
+            title: '解释',
+            value: '防止页面加载时出现 vuejs 的变量名'
           }
         ],
       },
@@ -547,7 +565,23 @@ export default {
           }
         ],
       },
+      VCustomDirectiveObj: {
+        message: '<div>\n' +
+        '            <div><input v-model="VOnceObj.value"></div>\n' +
+        '            <div v-once>{{VOnceObj.value}}</div>\n' +
+        '          </div>',
+        value: '这段内容只渲染一次，不会再重新渲染了',
+        describe: [
+          {
+            title: '详细',
+            value: '只渲染元素和组件一次。随后的重新渲染，元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。'
+          }
+        ],
+      }
     }
+  },
+  directives: {
+    CustomDirective
   },
   methods: {
     pushArray () {
@@ -587,6 +621,9 @@ export default {
       // 如果有传参，则按传参来
       console.log('触发点击事件', params)
       console.log('event', event)
+    },
+    handleCustomDirective () {
+      console.log('执行自定义指令')
     }
   },
   watch: {
