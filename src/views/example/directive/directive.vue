@@ -103,7 +103,7 @@
             <div v-for="(item, index) of VForObj.array2">
               <label>{{item.name}}</label>
               <span>
-                <span v-for="(item2, index2) of item.value">
+                <span v-for="(item2, index2) of item.value" :key="index2">
                   {{item2}}
                 </span>
               </span>
@@ -152,7 +152,7 @@
           展示内容:<el-button @click.prevent="handleClick">点我4 取消默认事件</el-button>
         </div>
       </form>
-      <div class="describe" v-for="(item, index) of VIfObj.describe" :key="index">
+      <div class="describe" v-for="(item, index) of VOnObj.describe" :key="index">
         <div class="title" v-text="item.title"></div>
         <div class="value" v-text="item.value"></div>
       </div>
@@ -223,7 +223,106 @@
           <div>输出{{VModelObj.childComponent2Value}}</div>
         </div>
       </form>
-      <div class="describe" v-for="(item, index) of VIfObj.describe" :key="index">
+      <div class="describe" v-for="(item, index) of VModelObj.describe" :key="index">
+        <div class="title" v-text="item.title"></div>
+        <div class="value" v-text="item.value"></div>
+      </div>
+    </div>
+    <div class="VSlot" v-show="type === 'v-slot'">
+      <form>
+        <div class="condition">
+          <div>2.6.0版本之前的插槽</div>
+          当前写法：<pre v-text="VSlotObj.message"></pre>
+          展示内容:
+          <child-component3>
+            <div slot="myHeader">这是我的头</div>
+            <div slot="myBody">这是我的身体</div>
+            <div slot="myFooter">这是我的脚</div>
+          </child-component3>
+        </div>
+        <div class="condition">
+          <div>2.6.0之后的版本 </div>
+          当前写法：<pre v-text="VSlotObj.message2"></pre>
+          展示内容:
+          <div>
+            <child-component3>
+              <template v-slot="myHeader">
+                <div>这是我的头</div>
+              </template>
+              <template v-slot="myBody">
+                <div>这是我的身体</div>
+              </template>
+              <template v-slot="myHeader">
+                <div>这是我的脚</div>
+              </template>
+            </child-component3>
+          </div>
+        </div>
+        <div class="condition">
+          <div>2.6.0之后的版本 </div>
+          当前写法：<pre v-text="VSlotObj.message3"></pre>
+          展示内容:
+          <div>
+            <child-component3>
+              <template v-slot="myHeader">
+                <div slot="myHeader">这是我的头</div>
+              </template>
+              <template v-slot="myBody">
+                <div slot="myBody">这是我的身体</div>
+              </template>
+              <template v-slot="myHeader">
+                <div slot="myFooter">这是我的脚</div>
+              </template>
+            </child-component3>
+          </div>
+        </div>
+      </form>
+      <div class="describe" v-for="(item, index) of VSlotObj.describe" :key="index">
+        <div class="title" v-text="item.title"></div>
+        <div class="value" v-text="item.value"></div>
+      </div>
+    </div>
+    <div class="VPre" v-show="type === 'v-pre'">
+      <form>
+        <div class="condition">
+          <div>情况1</div>
+          当前写法：<pre v-text="VPreObj.message"></pre>
+          展示内容:<div v-pre>{{VPreObj.value}}</div>
+        </div>
+      </form>
+      <div class="describe" v-for="(item, index) of VPreObj.describe" :key="index">
+        <div class="title" v-text="item.title"></div>
+        <div class="value" v-text="item.value"></div>
+      </div>
+    </div>
+    <div class="VCloak" v-show="type === 'v-cloak'">
+      <form>
+        <div class="condition">
+          <div>情况1</div>
+          当前写法：<pre v-text="VCloakObj.message"></pre>
+          展示内容:
+          <div id="test-v-cloak" v-cloak>{{VCloakObj.value}}</div>
+          <!--<div id="test-v-cloak"></div>-->
+        </div>
+      </form>
+      <div class="describe" v-for="(item, index) of VCloakObj.describe" :key="index">
+        <div class="title" v-text="item.title"></div>
+        <div class="value" v-text="item.value"></div>
+      </div>
+    </div>
+    <div class="VOnce" v-show="type === 'v-once'">
+      <form>
+        <div class="condition">
+          <div>情况1</div>
+          当前写法：<pre v-text="VOnceObj.message"></pre>
+          展示内容:
+          <div>
+            <div><input v-model="VOnceObj.value"></div>
+            <div v-once>{{VOnceObj.value}}</div>
+          </div>
+        </div>
+      </form>
+      <div class="describe" v-for="(item, index) of VCloakObj.describe" :key="index">
         <div class="title" v-text="item.title"></div>
         <div class="value" v-text="item.value"></div>
       </div>
@@ -232,8 +331,10 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import ChildComponent from './childComponent'
 import ChildComponent2 from './childComponent2'
+import ChildComponent3 from './childComponent3'
 export default {
   name: 'directive',
   data () {
@@ -366,7 +467,83 @@ export default {
         describe: [
           {
             title: '注意',
-            value: '官网中的v-bind用法的修饰符.prop与.sync 的用法已经被移除，Props 现在只能单向传递。详情见:https://cn.vuejs.org/v2/guide/migration.html#v-bind-%E7%9A%84-once%E5%92%8C-sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6-%E7%A7%BB%E9%99%A4'
+            value: '自定义组件的v-model：https://cn.vuejs.org/v2/guide/components-custom-events.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E7%9A%84-v-model'
+          }
+        ],
+      },
+      VSlotObj: {
+        message: '<child-component3>\n' +
+        '            <div slot="myHeader">这是我的头</div>\n' +
+        '            <div slot="myBody">这是我的身体</div>\n' +
+        '            <div slot="myHeader">这是我的脚</div>\n' +
+        '          </child-component3>',
+        message2: '<div>\n' +
+        '            <child-component3>\n' +
+        '              <template v-slot="myHeader">\n' +
+        '                <div>这是我的头</div>\n' +
+        '              </template>\n' +
+        '              <template v-slot="myBody">\n' +
+        '                <div>这是我的身体</div>\n' +
+        '              </template>\n' +
+        '              <template v-slot="myHeader">\n' +
+        '                <div>这是我的脚</div>\n' +
+        '              </template>\n' +
+        '            </child-component3>\n' +
+        '          </div>',
+        message3: '<div>\n' +
+        '            <child-component3>\n' +
+        '              <template v-slot="myHeader">\n' +
+        '                <div slot="myHeader">这是我的头</div>\n' +
+        '              </template>\n' +
+        '              <template v-slot="myBody">\n' +
+        '                <div slot="myBody">这是我的身体</div>\n' +
+        '              </template>\n' +
+        '              <template v-slot="myHeader">\n' +
+        '                <div slot="myFooter">这是我的脚</div>\n' +
+        '              </template>\n' +
+        '            </child-component3>\n' +
+        '          </div>',
+        describe: [
+          {
+            title: '参数',
+            value: '插槽名 (可选，默认值是 default)'
+          },
+          {
+            title: '注意',
+            value: 'v-slot是vue 2.6.0版本后新增的。并且v-slot只能用在<template>或者组件上.'
+          },
+        ],
+      },
+      VPreObj: {
+        message: '<div v-cloak>这段内容在编译完成前是红色，编译完成后是黑色</div>',
+        value: 'this is v-pre value and won\'t be compile',
+        describe: [
+          {
+            title: '用法',
+            value: '被标注的内容不会被编译，用来提升渲染效率'
+          }
+        ],
+      },
+      VCloakObj: {
+        message: '<div v-cloak>{{VCloakObj.value}}</div>',
+        value: '这段内容在编译完成前不会显示 \'{{VCloakObj.value}}\'',
+        describe: [
+          {
+            title: '用法',
+            value: '这个指令保持在元素上直到关联实例结束编译。和 CSS 规则如 [v-cloak] { display: none } 一起用时，这个指令可以隐藏未编译的 Mustache 标签直到实例准备完毕。'
+          }
+        ],
+      },
+      VOnceObj: {
+        message: '<div>\n' +
+        '            <div><input v-model="VOnceObj.value"></div>\n' +
+        '            <div v-once>{{VOnceObj.value}}</div>\n' +
+        '          </div>',
+        value: '这段内容只渲染一次，不会再重新渲染了',
+        describe: [
+          {
+            title: '详细',
+            value: '只渲染元素和组件一次。随后的重新渲染，元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。'
           }
         ],
       },
@@ -422,10 +599,22 @@ export default {
   },
   components: {
     ChildComponent,
-    ChildComponent2
+    ChildComponent2,
+    ChildComponent3
   },
   mounted () {
     this.type = this.$router.currentRoute.params.type
+    // setTimeout(() => {
+    //   new Vue({
+    //     template: '<div v-cloak>{{value}}{{for (let i = 0; i < 100; i++){ console.log(i) }}</div>',
+    //     data () {
+    //       return {
+    //         value: '这段内容在编译完成前是红色，编译完成后是黑色'
+    //       }
+    //     }
+    //   }).$mount('#test-v-cloak')
+    // },2000)
+
   }
 
 }
@@ -449,5 +638,9 @@ export default {
 
   .new-class {
     color: #ff0000;
+  }
+
+  [v-cloak] {
+    display: none;
   }
 </style>

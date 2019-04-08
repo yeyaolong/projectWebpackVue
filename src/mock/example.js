@@ -99,7 +99,7 @@ export default {
       'code': 200,
       'data': {
         'message': 'success',
-        'directiveList': ['v-text', 'v-html', 'v-show', 'v-if', 'v-for', 'v-on', 'v-bind', 'v-model', 'v-slot', 'v-pre', 'v-cloak', 'v-once']
+        'directiveList': ['v-text', 'v-html', 'v-show', 'v-if', 'v-for', 'v-on', 'v-bind', 'v-model', 'v-slot', 'v-pre', 'v-cloak', 'v-once', '自定义指令']
       }
     })
   }
