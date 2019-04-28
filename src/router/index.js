@@ -10,6 +10,14 @@ const life = r => require.ensure([], () => r(require('@/views/example/life')), '
 const syntax = r => require.ensure([], () => r(require('@/views/example/syntax')), 'syntax');
 const articleDetail = r => require.ensure([], () => r(require('@/views/example/articleDetail')), 'syntax');
 const directive = r => require.ensure([], () => r(require('@/views/example/directive/directive')), 'syntax');
+/**
+ * 路由测试
+ */
+const routerTest = r => require.ensure([], () => r(require('@/views/example/router/routerTest')), 'syntax');
+const routerTest1 = r => require.ensure([], () => r(require('@/views/example/router/routerTest1')), 'syntax');
+const routerTest2 = r => require.ensure([], () => r(require('@/views/example/router/routerTest2')), 'syntax');
+const routerTest3 = r => require.ensure([], () => r(require('@/views/example/router/routerTest3')), 'syntax');
+const routerTest4 = r => require.ensure([], () => r(require('@/views/example/router/routerTest4')), 'syntax');
 
 const login = r => require.ensure([], () => r(require('@/views/common/login')), 'login');
 const Error = r => require.ensure([], () => r(require('@/views/common/notfound')), 'error');
@@ -26,7 +34,40 @@ const routers = [
 			{ path: '/life', name: 'life', component: life, meta: { title: 'life', requireLogin: true } },
 			{ path: '/syntax', name: 'syntax', component: syntax, meta: { title: 'syntax', requireLogin: false } },
 			{ path: '/article/:article_id', name: 'articleDetail', component: articleDetail, meta: { title: '详细页', requireLogin: false } },
-      { path: '/directive/:type', name: 'directive', component: directive, mata: { title: 'Vue指令', requireLogin: false}}
+      { path: '/directive/:type', name: 'directive', component: directive, meta: { title: 'Vue指令', requireLogin: false}},
+      {
+        path: '/routerTest',
+        name: 'routerTest',
+        component: routerTest,
+        mata: { title: '路由测试', requireLogin: false},
+        children: [
+          {
+            name: 'routerTest1',
+            path: '/routerTest1',
+            component: routerTest1,
+            meta: { title: '路由测试1', requireLogin: false}
+          },
+          {
+            name: 'routerTest2',
+            path: '/routerTest2/:id',
+            component: routerTest2,
+            meta: { title: '路由测试2', requireLogin: false}
+          },
+          {
+            name: 'routerTest3',
+            path: '/routerTest3',
+            component: routerTest3,
+            meta: { title: '路由测试3', requireLogin: false}
+          },
+          {
+            name: 'routerTest4',
+            path: '/routerTest4',
+            component: routerTest4,
+            meta: { title: '路由测试4', requireLogin: false},
+            props: {id: '123'}
+          }
+        ]
+      },
     ]
   },
 	{ path: '/login', name: 'login', component: login, meta: { title: '登录', requireLogin:false } }, //登录

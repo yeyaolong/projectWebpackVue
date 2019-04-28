@@ -50,6 +50,17 @@
           <el-menu-item v-for="(item, index) in directiveMenu" :key="index" :index="'3-'+index" @click="showDirectiveContent(item)">{{item}}</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
+      <el-submenu index="4">
+        <template slot="title">
+          <i class="el-icon-document"></i>
+          <span slot="title">路由</span>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item index="3-1">
+            <router-link to="/routerTest">路由测试</router-link>
+          </el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
 		</el-menu>
 	</div>
 

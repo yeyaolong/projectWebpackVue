@@ -196,6 +196,12 @@
       resetForm(formName) {
         this.$refs[formName].resetFields();
       }
+    },
+    created () {
+      console.log('form this.$route', this.$route)
+      console.log('form this.$route.query', this.$route.query)
+      console.log('form this.$route.params', this.$route.params)
+      console.log('form this.$route.currentRoute', this.$route.currentRoute)
     }
   }
 </script>

@@ -30,7 +30,7 @@ export default {
     watch:{
       '$route' (to, from) {
 	      let id = this.$route.params.article_id;
-				if (this.article_id != id) {
+	      if (this.article_id != id) {
 					this.article_id = id;
 				}
 	    },
@@ -39,7 +39,11 @@ export default {
 			}
     },
     created(){
-				this.article_id = this.$route.params.article_id;
+      this.article_id = this.$route.params.article_id;
+      console.log('articleDetail this.$route', this.$route)
+      console.log('articleDetail this.$route.query', this.$route.query)
+      console.log('articleDetail this.$route.params', this.$route.params)
+      console.log('articleDetail this.$route.currentRoute', this.$route.currentRoute)
     },
     methods:{
 			// 读取数据
