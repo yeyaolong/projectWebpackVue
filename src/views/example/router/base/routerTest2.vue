@@ -36,7 +36,7 @@
         <div>router为VueRouter的实例，相当于一个全局的路由器对象。</div>
         <div>route相当于当前正在跳转的路由对象；可以从里面获取name,path,params,query等</div>
         我们将内容打印出来看一下：
-        <img src="../../../assets/images/common/router&route.png" style="width: 100%;">
+        <img src="../../../../assets/images/common/router&route.png" style="width: 100%;">
       </div>
     </div>
   </div>

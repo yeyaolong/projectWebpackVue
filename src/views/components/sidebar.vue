@@ -57,7 +57,10 @@
         </template>
         <el-menu-item-group>
           <el-menu-item index="3-1">
-            <router-link to="/routerTest">路由基础</router-link>
+            <router-link to="/routerTest">路由基础 跳转、传参、取参</router-link>
+          </el-menu-item>
+          <el-menu-item index="3-2">
+            <router-link to="/paramRouter">路由进阶 路由组件传参</router-link>
           </el-menu-item>
         </el-menu-item-group>
       </el-submenu>

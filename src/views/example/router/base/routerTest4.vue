@@ -1,5 +1,5 @@
 <template>
-  <div class="route-test2">
+  <div class="route-test1">
     <div class="route-description">
       <div class="route-description-title">router写法:</div>
       <div class="route-description-content" v-text="routeDescription"></div>
@@ -26,6 +26,19 @@
       <div class="route-param-content" v-text="getParam2"></div>
       <div>获取的值：{{paramsStr2}}</div>
     </div>
+    <div class="description">
+      <div class="red-font">
+        <p>可以发现，使用?message=xxx的这种query传参的方式，</p>
+        <p>"跳转方式"会将原来的"router写法"所写的所有query的内容覆盖掉。</p>
+        <p>我们在"跳转方式"中写了 message=xxx</p>
+        <p>而在"router写法"中写的是props:{id: 123}</p>
+        <p>"router写法"中的所有内容都被覆盖掉了</p>
+      </div>
+      <div>
+        我们将内容打印出来看一下：
+        <img src="../../../../assets/images/common/routeQuery.png" style="width: 100%;">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -34,16 +47,17 @@
     data () {
       return {
         routeDescription: '{\n' +
-        '            name: \'routerTest7\',\n' +
-        '            path: \'/routerTest7\',\n' +
-        '            component: routerTest7,\n' +
-        '            meta: { title: \'路由测试7\', requireLogin: false}\n' +
+        '            name: \'routerTest4\',\n' +
+        '            path: \'/routerTest4\',\n' +
+        '            component: routerTest4,\n' +
+        '            meta: { title: \'路由测试4\', requireLogin: false},\n' +
+        '            props: {id: \'123\'}\n' +
         '          }',
-        routeJumpDescription: '<router-link :to="{name: \'routerTest7\', params: {id: 123} }">路由测试7：router-link 传参方式4 </router-link>',
-        routeMethodJumpDescription: '<el-button type="default" @click="$router.push({name: \'routerTest7\', params: {id: 123}})">函数方式跳转</el-button>',
-        getParam1: 'this.$router.currentRoute.params',
+        routeJumpDescription: '<router-link to="/routerTest4?message=这是信息哦">路由测试4：router-link 传参方式3</router-link>',
+        routeMethodJumpDescription: '<el-button type="default" @click="$router.push(\'/routerTest4?message=这是信息哦\')">函数方式跳转</el-button>',
+        getParam1: 'this.$router.currentRoute.query',
         paramsStr1: '',
-        getParam2: 'this.$route.params',
+        getParam2: 'this.$route.query',
         paramsStr2: '',
         url: ''
       }
@@ -54,13 +68,14 @@
     mounted () {
       console.log('this.$router', this.$router)
       console.log('this.$route', this.$route)
-      this.paramsStr1 = JSON.stringify(this.$router.currentRoute.params)
-      this.paramsStr2 = JSON.stringify(this.$route.params)
+      this.paramsStr1 = JSON.stringify(this.$router.currentRoute.query)
+      this.paramsStr2 = JSON.stringify(this.$route.query)
       this.url = window.location.href
     }
   }
 </script>
 
+
 <style scoped>
-  @import './routerTest.scss';
+  @import 'routerTest.scss';
 </style>

@@ -44,5 +44,5 @@
 </script>
 
 <style>
-  @import './routerTest.scss';
+  @import 'routerTest.scss';
 </style>

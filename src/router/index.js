@@ -13,15 +13,15 @@ const directive = r => require.ensure([], () => r(require('@/views/example/direc
 /**
  * 路由测试
  */
-const routerTest = r => require.ensure([], () => r(require('@/views/example/router/routerTest')), 'syntax');
-const routerTest1 = r => require.ensure([], () => r(require('@/views/example/router/routerTest1')), 'syntax');
-const routerTest2 = r => require.ensure([], () => r(require('@/views/example/router/routerTest2')), 'syntax');
-const routerTest3 = r => require.ensure([], () => r(require('@/views/example/router/routerTest3')), 'syntax');
-const routerTest4 = r => require.ensure([], () => r(require('@/views/example/router/routerTest4')), 'syntax');
-const routerTest5 = r => require.ensure([], () => r(require('@/views/example/router/routerTest5')), 'syntax');
-const routerTest6 = r => require.ensure([], () => r(require('@/views/example/router/routerTest6')), 'syntax');
-const routerTest7 = r => require.ensure([], () => r(require('@/views/example/router/routerTest7')), 'syntax');
-const routerTest8 = r => require.ensure([], () => r(require('@/views/example/router/routerTest8')), 'syntax');
+const routerTest = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest')), 'syntax');
+const routerTest1 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest1')), 'syntax');
+const routerTest2 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest2')), 'syntax');
+const routerTest3 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest3')), 'syntax');
+const routerTest4 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest4')), 'syntax');
+const routerTest5 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest5')), 'syntax');
+const routerTest6 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest6')), 'syntax');
+const routerTest7 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest7')), 'syntax');
+const routerTest8 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest8')), 'syntax');
 
 const login = r => require.ensure([], () => r(require('@/views/common/login')), 'login');
 const Error = r => require.ensure([], () => r(require('@/views/common/notfound')), 'error');

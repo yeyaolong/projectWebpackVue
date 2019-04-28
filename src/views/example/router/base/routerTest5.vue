@@ -44,6 +44,6 @@
 </script>
 
 <style scoped>
-  @import './routerTest.scss';
+  @import 'routerTest.scss';
 </style>
 

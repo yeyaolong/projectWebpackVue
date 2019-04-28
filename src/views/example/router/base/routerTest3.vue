@@ -45,7 +45,7 @@
       </div>
       <div>
         我们将内容打印出来看一下：
-        <img src="../../../assets/images/common/routerQuery1.png" style="width: 100%;">
+        <img src="../../../../assets/images/common/routerQuery1.png" style="width: 100%;">
       </div>
     </div>
   </div>
@@ -90,5 +90,5 @@
 </script>
 
 <style scoped>
-  @import './routerTest.scss';
+  @import 'routerTest.scss';
 </style>
