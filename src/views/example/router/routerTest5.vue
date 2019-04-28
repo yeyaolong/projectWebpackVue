@@ -5,7 +5,7 @@
       <div class="route-description-content" v-text="routeDescription"></div>
     </div>
     <div class="route-jump">
-      <div class="route-jump-title">router-link跳转方式：</div>
+      <div class="route-jump-title">跳转方式：</div>
       <div class="route-jump-content" v-text="routeJumpDescription"></div>
     </div>
     <div class="route-jump">
@@ -24,13 +24,13 @@
     data () {
       return {
         routeDescription: '{\n' +
-        '        name: \'routerTest1\',\n' +
-        '        path: \'/routerTest1\',\n' +
-        '        component: routerTest1,\n' +
-        '        meta: { title: \'路由测试1\', requireLogin: false}\n' +
-        '      }',
-        routeJumpDescription: '<router-link to="/routerTest1">路由测试1</router-link>',
-        routeMethodJumpDescription: '<el-button type="default" @click="routerTest1Fn">函数方式跳转</el-button>',
+        '            name: \'routerTest5\',\n' +
+        '            path: \'/routerTest5\',\n' +
+        '            component: routerTest5,\n' +
+        '            meta: { title: \'路由测试5\', requireLogin: false}\n' +
+        '          }',
+        routeJumpDescription: '<router-link :to="{path: \'routerTest5\' }">路由测试5：router-link</router-link>',
+        routeMethodJumpDescription: '<el-button type="default" @click="$router.push({path: \'routerTest5\'})">函数方式跳转</el-button>',
         url: ''
       }
     },
@@ -43,6 +43,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   @import './routerTest.scss';
 </style>
+

@@ -57,7 +57,7 @@
         </template>
         <el-menu-item-group>
           <el-menu-item index="3-1">
-            <router-link to="/routerTest">路由测试</router-link>
+            <router-link to="/routerTest">路由基础</router-link>
           </el-menu-item>
         </el-menu-item-group>
       </el-submenu>

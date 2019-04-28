@@ -24,13 +24,13 @@
     data () {
       return {
         routeDescription: '{\n' +
-        '        name: \'routerTest1\',\n' +
-        '        path: \'/routerTest1\',\n' +
-        '        component: routerTest1,\n' +
-        '        meta: { title: \'路由测试1\', requireLogin: false}\n' +
-        '      }',
-        routeJumpDescription: '<router-link to="/routerTest1">路由测试1</router-link>',
-        routeMethodJumpDescription: '<el-button type="default" @click="routerTest1Fn">函数方式跳转</el-button>',
+        '            name: \'routerTest6\',\n' +
+        '            path: \'/routerTest6\',\n' +
+        '            component: routerTest6,\n' +
+        '            meta: { title: \'路由测试6\', requireLogin: false}\n' +
+        '          }',
+        routeJumpDescription: '<router-link :to="{name: \'routerTest6\' }">路由测试6：router-link to: {name: \'\'} 命名路由跳转</router-link>',
+        routeMethodJumpDescription: '<el-button type="default" @click="$router.push({name: \'routerTest6\'})">函数方式跳转</el-button>',
         url: ''
       }
     },
@@ -43,6 +43,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   @import './routerTest.scss';
 </style>
+

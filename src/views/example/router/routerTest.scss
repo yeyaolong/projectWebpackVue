@@ -3,14 +3,20 @@
 }
 
 .router-link-container {
-  height: 50%;
+  height: auto;
 }
 
 .router-view-container {
-  height: 50%;
+  height: auto;
 }
 
 .red-font {
   color: red;
   font-weight: 600;
+}
+
+.route-description-title, .route-jump-title, .route-param-title, .route-url-title, .description-title {
+  color: red;
+  font-weight: 600;
+  font-size: 24px;
 }

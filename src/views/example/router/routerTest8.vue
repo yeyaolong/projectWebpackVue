@@ -28,15 +28,14 @@
     </div>
     <div class="description">
       <div class="red-font">
-        <p>可以发现，使用?message=xxx的这种query传参的方式，</p>
-        <p>"跳转方式"会将原来的"router写法"所写的所有query的内容覆盖掉。</p>
-        <p>我们在"跳转方式"中写了 message=xxx</p>
-        <p>而在"router写法"中写的是props:{id: 123}</p>
-        <p>"router写法"中的所有内容都被覆盖掉了</p>
+        <p>注意：如果提供了 path，params 会被忽略</p>
+        <p>可以发现，使用:to={path: '/routerTest9', params: {id: 123}}的这种params传参的方式，</p>
+        <p>既不能从query中获取数据query: {}，</p>
+        <p>也不能从params中获取数据，params: {}</p>
       </div>
       <div>
         我们将内容打印出来看一下：
-        <img src="../../../assets/images/common/routeQuery.png" style="width: 100%;">
+        <img src="../../../assets/images/common/paramsInvalid.png" style="width: 100%;">
       </div>
     </div>
   </div>
@@ -47,17 +46,16 @@
     data () {
       return {
         routeDescription: '{\n' +
-        '            name: \'routerTest4\',\n' +
-        '            path: \'/routerTest4\',\n' +
-        '            component: routerTest4,\n' +
-        '            meta: { title: \'路由测试4\', requireLogin: false},\n' +
-        '            props: {id: \'123\'}\n' +
+        '            name: \'routerTest8\',\n' +
+        '            path: \'/routerTest8\',\n' +
+        '            component: routerTest8,\n' +
+        '            meta: { title: \'路由测试8\', requireLogin: false}\n' +
         '          }',
-        routeJumpDescription: '<router-link to="/routerTest4?message=这是信息哦">路由测试4：router-link 传参方式3</router-link>',
-        routeMethodJumpDescription: '<el-button type="default" @click="$router.push(\'/routerTest4?message=这是信息哦\')">函数方式跳转</el-button>',
-        getParam1: 'this.$router.currentRoute.query',
+        routeJumpDescription: '<router-link :to="{path: \'/routerTest8\', params: {id: 123} }">路由测试8：router-link 传参方式5 query</router-link>',
+        routeMethodJumpDescription: '<el-button type="default" @click="$router.push({path: \'/routerTest8\', params: {id: 123}})">函数方式跳转</el-button>',
+        getParam1 : 'this.$router.currentRoute.query',
         paramsStr1: '',
-        getParam2: 'this.$route.query',
+        getParam2 : 'this.$route.query',
         paramsStr2: '',
         url: ''
       }
@@ -68,13 +66,12 @@
     mounted () {
       console.log('this.$router', this.$router)
       console.log('this.$route', this.$route)
-      this.paramsStr1 = JSON.stringify(this.$router.currentRoute.query)
-      this.paramsStr2 = JSON.stringify(this.$route.query)
+      this.paramsStr1 = this.$router.currentRoute.query
+      this.paramsStr2 = this.$route.query
       this.url = window.location.href
     }
   }
 </script>
-
 
 <style scoped>
   @import './routerTest.scss';
