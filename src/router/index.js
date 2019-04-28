@@ -11,7 +11,7 @@ const syntax = r => require.ensure([], () => r(require('@/views/example/syntax')
 const articleDetail = r => require.ensure([], () => r(require('@/views/example/articleDetail')), 'syntax');
 const directive = r => require.ensure([], () => r(require('@/views/example/directive/directive')), 'syntax');
 /**
- * 路由测试
+ * 路由基础 跳转、传参、取参
  */
 const routerTest = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest')), 'syntax');
 const routerTest1 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest1')), 'syntax');
@@ -22,6 +22,12 @@ const routerTest5 = r => require.ensure([], () => r(require('@/views/example/rou
 const routerTest6 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest6')), 'syntax');
 const routerTest7 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest7')), 'syntax');
 const routerTest8 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest8')), 'syntax');
+/**
+ * 路由进阶 路由组件传参（布尔模式、对象模式、函数模式）
+ */
+const paramRouter = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramRouter')), 'syntax');
+const paramNotDecoupling = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramNotDecoupling')), 'syntax');
+const paramDecoupling = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramDecoupling')), 'syntax');
 
 const login = r => require.ensure([], () => r(require('@/views/common/login')), 'login');
 const Error = r => require.ensure([], () => r(require('@/views/common/notfound')), 'error');
@@ -94,6 +100,16 @@ const routers = [
             component: routerTest8,
             meta: { title: '路由基础8', requireLogin: false}
           }
+        ]
+      },
+      {
+        path: '/paramRouter',
+        name: 'paramRouter',
+        component: paramRouter,
+        meta: { title: '路由进阶', requireLogin: false},
+        children: [
+          { path: '/paramNotDecoupling/:id', name: 'paramNotDecoupling', component: paramNotDecoupling, meta: { title: '路由参数未解耦', requireLogin: false}},
+          { path: '/paramDecoupling/:id', name: 'paramDecoupling', component: paramDecoupling, props: true, meta: { title: '路由参数已解耦', requireLogin: false}},
         ]
       },
     ]
