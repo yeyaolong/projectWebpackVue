@@ -22,7 +22,7 @@
         </div>
       </div>
       <div>
-        路由基础2.3 错误的写法 路径参数 /routerTest2/#这种写法看似传了一个值为#的参数过来，实际山还是无法做正确的路由跳转的
+        路由基础2.3 错误的写法 路径参数 /routerTest2/#这种写法看似传了一个值为#的参数过来，实际上还是无法做正确的路由跳转的
         <div>
           <router-link to="/routerTest2/#">router-link 传参方式1 路径参数</router-link>/<el-button type="default" @click="$router.push('/routerTest2/#')">编程式导航</el-button>
         </div>

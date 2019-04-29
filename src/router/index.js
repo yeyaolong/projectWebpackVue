@@ -28,6 +28,8 @@ const routerTest8 = r => require.ensure([], () => r(require('@/views/example/rou
 const paramRouter = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramRouter')), 'syntax');
 const paramNotDecoupling = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramNotDecoupling')), 'syntax');
 const paramDecoupling = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramDecoupling')), 'syntax');
+const paramBoolean = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramBoolean')), 'syntax');
+const paramBooleanFalse = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramBooleanFalse')), 'syntax');
 
 const login = r => require.ensure([], () => r(require('@/views/common/login')), 'login');
 const Error = r => require.ensure([], () => r(require('@/views/common/notfound')), 'error');
@@ -110,6 +112,9 @@ const routers = [
         children: [
           { path: '/paramNotDecoupling/:id', name: 'paramNotDecoupling', component: paramNotDecoupling, meta: { title: '路由参数未解耦', requireLogin: false}},
           { path: '/paramDecoupling/:id', name: 'paramDecoupling', component: paramDecoupling, props: true, meta: { title: '路由参数已解耦', requireLogin: false}},
+          { path: '/paramBoolean/:id', name: 'paramBoolean', component: paramBoolean, props: true, meta: { title: '路由参数 布尔模式', requireLogin: false}},
+          { path: '/paramBooleanFalse/:id', name: 'paramBooleanFalse', component: paramBooleanFalse, props: false, meta: { title: '路由参数 布尔模式', requireLogin: false}},
+
         ]
       },
     ]
