@@ -10,6 +10,24 @@
         <router-link to="/routerTest2/123">router-link 传参方式1 路径参数</router-link>/<el-button type="default" @click="$router.push('/routerTest2/123')">编程式导航</el-button>
       </div>
       <div>
+        路由基础2.1 错误的写法 路径参数，不论多一个还是少一个参数，都无法做正确的路由跳转。必须与路径参数数量一模一样
+        <div>
+          <router-link to="/routerTest2/123/456">router-link 传参方式1 路径参数</router-link>/<el-button type="default" @click="$router.push('/routerTest2/123/456')">编程式导航</el-button>
+        </div>
+      </div>
+      <div>
+        路由基础2.2 错误的写法 路径参数 /routerTest2//这种写法看似传了一个值为undefined的参数过来，实际山还是无法做正确的路由跳转的
+        <div>
+          <router-link to="/routerTest2//">router-link 传参方式1 路径参数</router-link>/<el-button type="default" @click="$router.push('/routerTest2//')">编程式导航</el-button>
+        </div>
+      </div>
+      <div>
+        路由基础2.3 错误的写法 路径参数 /routerTest2/#这种写法看似传了一个值为#的参数过来，实际山还是无法做正确的路由跳转的
+        <div>
+          <router-link to="/routerTest2/#">router-link 传参方式1 路径参数</router-link>/<el-button type="default" @click="$router.push('/routerTest2/#')">编程式导航</el-button>
+        </div>
+      </div>
+      <div>
         路由基础3：
         <router-link to="/routerTest3?id=123">router-link 传参方式2 query</router-link>/<el-button type="default" @click="$router.push('/routerTest3?id=123')">编程式导航</el-button>
       </div>
