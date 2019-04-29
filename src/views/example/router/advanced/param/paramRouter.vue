@@ -44,9 +44,11 @@
       },
       routerObjectFn () {
         console.log('对象模式')
+        this.$router.push('/paramObject')
       },
       routerMethodFn () {
         console.log('函数模式')
+        this.$router.push('/paramMethod?id=123&article=\'hello world\'')
       }
     },
     mounted () {

@@ -30,6 +30,9 @@ const paramNotDecoupling = r => require.ensure([], () => r(require('@/views/exam
 const paramDecoupling = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramDecoupling')), 'syntax');
 const paramBoolean = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramBoolean')), 'syntax');
 const paramBooleanFalse = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramBooleanFalse')), 'syntax');
+const paramObject = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramObject')), 'syntax');
+const paramMethod = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramMethod')), 'syntax');
+
 
 const login = r => require.ensure([], () => r(require('@/views/common/login')), 'login');
 const Error = r => require.ensure([], () => r(require('@/views/common/notfound')), 'error');
@@ -114,7 +117,8 @@ const routers = [
           { path: '/paramDecoupling/:id', name: 'paramDecoupling', component: paramDecoupling, props: true, meta: { title: '路由参数已解耦', requireLogin: false}},
           { path: '/paramBoolean/:id', name: 'paramBoolean', component: paramBoolean, props: true, meta: { title: '路由参数 布尔模式', requireLogin: false}},
           { path: '/paramBooleanFalse/:id', name: 'paramBooleanFalse', component: paramBooleanFalse, props: false, meta: { title: '路由参数 布尔模式', requireLogin: false}},
-
+          { path: '/paramObject', name: 'paramObject', component: paramObject, props: {id: 123, article: 'hello world'}, meta: { title: '路由参数 对象模式', requireLogin: false}},
+          { path: '/paramMethod', name: 'paramMethod', component: paramMethod, props: (route) => ({ query: route.query }), meta: { title: '路由参数 函数模式', requireLogin: false}}
         ]
       },
     ]
