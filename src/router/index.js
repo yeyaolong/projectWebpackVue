@@ -37,6 +37,7 @@ const paramBeforeEach = r => require.ensure([], () => r(require('@/views/example
 const paramBeforeResolve = r => require.ensure([], () => r(require('@/views/example/router/advanced/guard/beforeResolve')), 'syntax');
 const paramAfterEach = r =>require.ensure([], () => r(require('@/views/example/router/advanced/guard/afterEach')), 'syntax');
 const paramBeforeEnter = r =>require.ensure([], () => r(require('@/views/example/router/advanced/guard/beforeEnter')), 'syntax');
+const paramGuardInComponent = r =>require.ensure([], () => r(require('@/views/example/router/advanced/guard/guardInComponent')), 'syntax');
 
 const login = r => require.ensure([], () => r(require('@/views/common/login')), 'login');
 const Error = r => require.ensure([], () => r(require('@/views/common/notfound')), 'error');
@@ -156,6 +157,12 @@ const routers = [
               next()
             }
           },
+          {
+            path: '/paramGuardInComponent',
+            name: 'paramGuardInComponent',
+            component: paramGuardInComponent,
+          },
+
 
         ]
       }
@@ -219,9 +226,6 @@ router.beforeResolve((to, from ,next) => {
   switch (to.name) {
     case 'paramBeforeResolve':
       console.log('全局解析守卫 在路由解析完成之前执行')
-      // console.log('beforeEach to', to)
-      // console.log('beforeEach from', from)
-      // console.log('beforeEach next', next)
       break
     default:
       break
