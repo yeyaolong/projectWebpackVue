@@ -62,6 +62,9 @@
           <el-menu-item index="3-2">
             <router-link to="/paramRouter">路由进阶 路由组件传参</router-link>
           </el-menu-item>
+          <el-menu-item index="3-3">
+            <router-link to="/paramGuard">路由进阶 导航守卫</router-link>
+          </el-menu-item>
         </el-menu-item-group>
       </el-submenu>
 		</el-menu>

@@ -32,7 +32,11 @@ const paramBoolean = r => require.ensure([], () => r(require('@/views/example/ro
 const paramBooleanFalse = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramBooleanFalse')), 'syntax');
 const paramObject = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramObject')), 'syntax');
 const paramMethod = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramMethod')), 'syntax');
-
+const paramGuard = r => require.ensure([], () => r(require('@/views/example/router/advanced/guard/paramGuard')), 'syntax');
+const paramBeforeEach = r => require.ensure([], () => r(require('@/views/example/router/advanced/guard/beforeEach')), 'syntax');
+const paramBeforeResolve = r => require.ensure([], () => r(require('@/views/example/router/advanced/guard/beforeResolve')), 'syntax');
+const paramAfterEach = r =>require.ensure([], () => r(require('@/views/example/router/advanced/guard/afterEach')), 'syntax');
+const paramBeforeEnter = r =>require.ensure([], () => r(require('@/views/example/router/advanced/guard/beforeEnter')), 'syntax');
 
 const login = r => require.ensure([], () => r(require('@/views/common/login')), 'login');
 const Error = r => require.ensure([], () => r(require('@/views/common/notfound')), 'error');
@@ -121,6 +125,40 @@ const routers = [
           { path: '/paramMethod', name: 'paramMethod', component: paramMethod, props: (route) => ({ query: route.query }), meta: { title: '路由参数 函数模式', requireLogin: false}}
         ]
       },
+      {
+        path: '/paramGuard',
+        name: 'paramGuard',
+        component: paramGuard,
+        props: (route) => ({ query: route.query }),
+        meta: { title: '路由参数 守卫者模式', requireLogin: false},
+        children: [
+          {
+            path: '/paramBeforeEach',
+            name: 'paramBeforeEach',
+            component: paramBeforeEach,
+          },
+          {
+            path: '/paramBeforeResolve',
+            name: 'paramBeforeResolve',
+            component: paramBeforeResolve,
+          },
+          {
+            path: '/paramAfterEach',
+            name: 'paramAfterEach',
+            component: paramAfterEach,
+          },
+          {
+            path: '/paramBeforeEnter',
+            name: 'paramBeforeEnter',
+            component: paramBeforeEnter,
+            beforeEnter: (to, from, next) => {
+              console.log('paramBeforeEnter')
+              next()
+            }
+          },
+
+        ]
+      }
     ]
   },
 	{ path: '/login', name: 'login', component: login, meta: { title: '登录', requireLogin:false } }, //登录
@@ -135,9 +173,21 @@ const router = new Router({
 
 // 路由跳转之前
 router.beforeEach((to, from, next) => {
+  console.log('beforeEach router', router)
+  console.log('beforeEach router.afterEach', router.afterEach)
 	// 显示loading过渡效果
 	store.dispatch("ChangeLoading", true);
-
+  switch (to.name) {
+    case 'paramBeforeEach':
+      console.log('全局前置守卫 在路由跳转完成之前执行')
+      // console.log('beforeEach to', to)
+      // console.log('beforeEach from', from)
+      // console.log('beforeEach next', next)
+      next()
+      break
+    default:
+       break
+  }
 	if (to.meta.requireLogin) {   // 判断该路由是否需要登录权限
 		if (!window.sessionStorage) {
 			Message({
@@ -162,9 +212,27 @@ router.beforeEach((to, from, next) => {
 	window.document.title = to.meta.title ? `${to.meta.title}--BSS` : 'BSS'
 });
 
+router.beforeResolve((to, from ,next) => {
+  console.log('beforeResolve router', router)
+  console.log('beforeResolve router.afterEach', router.afterEach)
+
+  switch (to.name) {
+    case 'paramBeforeResolve':
+      console.log('全局解析守卫 在路由解析完成之前执行')
+      // console.log('beforeEach to', to)
+      // console.log('beforeEach from', from)
+      // console.log('beforeEach next', next)
+      break
+    default:
+      break
+  }
+  next()
+})
+
 
 // 路由跳转之后
 router.afterEach(function (to) {
+  console.log('afterEach router', router)
 	// 关闭loading过渡效果
 	store.dispatch("ChangeLoading", false);
 });
