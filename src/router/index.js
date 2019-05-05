@@ -58,7 +58,8 @@ const directive = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/
  * 路由基础 跳转、传参、取参
  */
 const routerTest = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest')
-const routerTest2 = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest1')
+const routerTest1 = () => import(/* webpackChunkName: 'syntax' */ '@/views/example/router/base/routerTest1')
+const routerTest2 = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest2')
 const routerTest3 = import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest3')
 const routerTest4 = import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest4')
 const routerTest5 = import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest5')
