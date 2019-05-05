@@ -2,45 +2,88 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import store from '@/store'
 
-const AppView = r => require.ensure([], () => r(require('@/views/components/app-view')), 'AppView');
-const home = r => require.ensure([], () => r(require('@/views/home/home')), 'home');
-const table = r => require.ensure([], () => r(require('@/views/example/table')), 'table');
-const form = r => require.ensure([], () => r(require('@/views/example/form')), 'table');
-const life = r => require.ensure([], () => r(require('@/views/example/life')), 'life');
-const syntax = r => require.ensure([], () => r(require('@/views/example/syntax')), 'syntax');
-const articleDetail = r => require.ensure([], () => r(require('@/views/example/articleDetail')), 'syntax');
-const directive = r => require.ensure([], () => r(require('@/views/example/directive/directive')), 'syntax');
+/**
+ * 使用require 做异步组件引入
+ */
+// const AppView = r => require.ensure([], () => r(require('@/views/components/app-view')), 'AppView');
+// const home = r => require.ensure([], () => r(require('@/views/home/home')), 'home');
+// const table = r => require.ensure([], () => r(require('@/views/example/table')), 'table');
+// const form = r => require.ensure([], () => r(require('@/views/example/form')), 'table');
+// const life = r => require.ensure([], () => r(require('@/views/example/life')), 'life');
+// const syntax = r => require.ensure([], () => r(require('@/views/example/syntax')), 'syntax');
+// const articleDetail = r => require.ensure([], () => r(require('@/views/example/articleDetail')), 'syntax');
+// const directive = r => require.ensure([], () => r(require('@/views/example/directive/directive')), 'syntax');
 /**
  * 路由基础 跳转、传参、取参
  */
-const routerTest = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest')), 'syntax');
-const routerTest1 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest1')), 'syntax');
-const routerTest2 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest2')), 'syntax');
-const routerTest3 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest3')), 'syntax');
-const routerTest4 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest4')), 'syntax');
-const routerTest5 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest5')), 'syntax');
-const routerTest6 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest6')), 'syntax');
-const routerTest7 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest7')), 'syntax');
-const routerTest8 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest8')), 'syntax');
+// const routerTest = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest')), 'syntax');
+// const routerTest1 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest1')), 'syntax');
+// const routerTest2 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest2')), 'syntax');
+// const routerTest3 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest3')), 'syntax');
+// const routerTest4 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest4')), 'syntax');
+// const routerTest5 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest5')), 'syntax');
+// const routerTest6 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest6')), 'syntax');
+// const routerTest7 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest7')), 'syntax');
+// const routerTest8 = r => require.ensure([], () => r(require('@/views/example/router/base/routerTest8')), 'syntax');
 /**
  * 路由进阶 路由组件传参（布尔模式、对象模式、函数模式）
  */
-const paramRouter = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramRouter')), 'syntax');
-const paramNotDecoupling = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramNotDecoupling')), 'syntax');
-const paramDecoupling = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramDecoupling')), 'syntax');
-const paramBoolean = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramBoolean')), 'syntax');
-const paramBooleanFalse = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramBooleanFalse')), 'syntax');
-const paramObject = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramObject')), 'syntax');
-const paramMethod = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramMethod')), 'syntax');
-const paramGuard = r => require.ensure([], () => r(require('@/views/example/router/advanced/guard/paramGuard')), 'syntax');
-const paramBeforeEach = r => require.ensure([], () => r(require('@/views/example/router/advanced/guard/beforeEach')), 'syntax');
-const paramBeforeResolve = r => require.ensure([], () => r(require('@/views/example/router/advanced/guard/beforeResolve')), 'syntax');
-const paramAfterEach = r =>require.ensure([], () => r(require('@/views/example/router/advanced/guard/afterEach')), 'syntax');
-const paramBeforeEnter = r =>require.ensure([], () => r(require('@/views/example/router/advanced/guard/beforeEnter')), 'syntax');
-const paramGuardInComponent = r =>require.ensure([], () => r(require('@/views/example/router/advanced/guard/guardInComponent')), 'syntax');
+// const paramRouter = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramRouter')), 'syntax');
+// const paramNotDecoupling = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramNotDecoupling')), 'syntax');
+// const paramDecoupling = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramDecoupling')), 'syntax');
+// const paramBoolean = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramBoolean')), 'syntax');
+// const paramBooleanFalse = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramBooleanFalse')), 'syntax');
+// const paramObject = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramObject')), 'syntax');
+// const paramMethod = r => require.ensure([], () => r(require('@/views/example/router/advanced/param/paramMethod')), 'syntax');
+// const paramGuard = r => require.ensure([], () => r(require('@/views/example/router/advanced/guard/paramGuard')), 'syntax');
+// const paramBeforeEach = r => require.ensure([], () => r(require('@/views/example/router/advanced/guard/beforeEach')), 'syntax');
+// const paramBeforeResolve = r => require.ensure([], () => r(require('@/views/example/router/advanced/guard/beforeResolve')), 'syntax');
+// const paramAfterEach = r =>require.ensure([], () => r(require('@/views/example/router/advanced/guard/afterEach')), 'syntax');
+// const paramBeforeEnter = r =>require.ensure([], () => r(require('@/views/example/router/advanced/guard/beforeEnter')), 'syntax');
+// const paramGuardInComponent = r =>require.ensure([], () => r(require('@/views/example/router/advanced/guard/guardInComponent')), 'syntax');
 
-const login = r => require.ensure([], () => r(require('@/views/common/login')), 'login');
-const Error = r => require.ensure([], () => r(require('@/views/common/notfound')), 'error');
+// const login = r => require.ensure([], () => r(require('@/views/common/login')), 'login');
+// const Error = r => require.ensure([], () => r(require('@/views/common/notfound')), 'error');
+
+// 使用import 做异步组件引入
+const AppView = () => import(/* webpackChunkName: 'AppView' */ '@/views/components/app-view');
+const home = () => import(/* webpackChunkName: 'home' */ '@/views/home/home');
+const table = () => import(/* webpackChunkName: 'table' */ '@/views/example/table');
+const form = () => import(/* webpackChunkName: 'table' */ '@/views/example/form');
+const life = () => import(/* webpackChunkName: 'life' */ '@/views/example/life');
+const syntax = () => import(/* webpackChunkName: 'syntax' */ '@/views/example/syntax')
+const articleDetail = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/articleDetail')
+const directive = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/directive/directive')
+/**
+ * 路由基础 跳转、传参、取参
+ */
+const routerTest = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest')
+const routerTest2 = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest1')
+const routerTest3 = import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest3')
+const routerTest4 = import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest4')
+const routerTest5 = import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest5')
+const routerTest6 = import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest6')
+const routerTest7 = import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest7')
+const routerTest8 = import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/base/routerTest8')
+/**
+ * 路由进阶 路由组件传参（布尔模式、对象模式、函数模式）
+ */
+const paramRouter = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/advanced/param/paramRouter');
+const paramNotDecoupling = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/advanced/param/paramNotDecoupling');
+const paramDecoupling = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/advanced/param/paramDecoupling');
+const paramBoolean = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/advanced/param/paramBoolean');
+const paramBooleanFalse = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/advanced/param/paramBooleanFalse');
+const paramObject = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/advanced/param/paramObject');
+const paramMethod = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/advanced/param/paramMethod');
+const paramGuard = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/advanced/guard/paramGuard')
+const paramBeforeEach = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/advanced/guard/beforeEach')
+const paramBeforeResolve = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/advanced/guard/beforeResolve')
+const paramAfterEach = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/advanced/guard/afterEach')
+const paramBeforeEnter = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/advanced/guard/beforeEnter')
+const paramGuardInComponent = () => import(/* webpackChunkName: 'syntax'*/ '@/views/example/router/advanced/guard/guardInComponent')
+
+const login = () => import(/* webpackChunkName: 'login'*/ '@/views/common/login')
+const Error = () => import(/* webpackChunkName: 'error'*/ '@/views/common/notfound')
 
 Vue.use(Router);
 const routers = [
